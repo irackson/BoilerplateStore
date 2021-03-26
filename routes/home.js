@@ -1,4 +1,4 @@
-//! create our new router
+//! import router
 const router = require('express').Router();
 const UsersRouter = require('./users');
 

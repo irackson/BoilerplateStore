@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="shortcut icon" href="#" />
-        <link rel="stylesheet" href="/styles/reset.css" />
-        <link rel="stylesheet" href="/styles/style.css" />
-
+        <%- include('./partials/head.ejs') %>
         <title>Login to Store</title>
     </head>
     <body>
         <header class="home__header">
-            <h1>Welcome to the Boilerplate Store</h1>
-            <h2>Login Below!</h2>
+            <%- include('./partials/header.ejs') %>
         </header>
-        <main><%- include('./account.ejs') %></main>
+        <main>
+            <h2>Login or create an account to enter the store</h2>
+            <%- include('./partials/account.ejs') %>
+        </main>
     </body>
 </html>

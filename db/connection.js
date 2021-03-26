@@ -49,8 +49,6 @@ db.on('disconnected', () => {
     // console.log('mongo disconnected/closed'.blue.bgYellow)
 });
 
-db.close();
-
 ////////////////////////////////
 //! Export the Connection
 /////////////////////////////////
