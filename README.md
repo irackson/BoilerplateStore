@@ -1,3 +1,8 @@
+# RESOURCES
+
+-   #### <a href="https://www.youtube.com/playlist?list=PLY6oTPmKnKbb4uE8ym45pLaaE76sUwvBL">Tutorial</a>
+-   #### <a href="https://tuts.alexmercedcoder.com/2020/AuthConcept/">AUTH</a> & [lab/tutorial](https://jedi.mycohort.download/full-stack-development/week-9/day-2/lecture-materials/authentication-with-bcrypt-and-sessions/)
+
 # BOILERPLATE DIRECTIONS
 
 -   clone with command `npx degit githubusername/githubreponame#branchname projectName`

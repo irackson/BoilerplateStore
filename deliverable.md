@@ -6,13 +6,13 @@ Make a product inventory manager with full CRUD using Mongoose.
 
 #### Learning Objectives
 
-- Full CRUD app in Express with Mongoose
+-   Full CRUD app in Express with Mongoose
 
 #### Prerequisites
 
-- JavaScript
-- Express / Node
-- Mongo / Mongoose
+-   JavaScript
+-   Express / Node
+-   Mongo / Mongoose
 
 ---
 
@@ -21,9 +21,9 @@ Make a product inventory manager with full CRUD using Mongoose.
 ### Index Page
 
 1. Your app should have an index page where
-	- all the products are displayed
-	- the images link to the product's show page
-	- and there should be a link to add a new product.
+    - all the products are displayed
+    - the images link to the product's show page
+    - and there should be a link to add a new product.
 
 <details><summary><strong>Example</strong></summary>
 <img src="https://i.imgur.com/CRJd6Hg.png">
@@ -32,10 +32,11 @@ Make a product inventory manager with full CRUD using Mongoose.
 ### Show Page
 
 1. Your show page should display a product with
-	- a link back to the products
-	- a link to edit the product (goes to the edit page)
-	- a delete button that deletes
-	- and the number of items remaining in stock.
+
+    - a link back to the products
+    - a link to edit the product (goes to the edit page)
+    - a delete button that deletes
+    - and the number of items remaining in stock.
 
 2. There should be a BUY button. The BUY button will reduce the number of items in stock by 1 each time it's pressed.
 
@@ -79,13 +80,14 @@ Make a product inventory manager with full CRUD using Mongoose.
 
 1. You will need to make a Mongoose Schema in a `products.js` file for your products. The schema should have:
 
-	```js
-	  name: String,
-	  description: String,
-	  img: String, // <---- this will hold an image url
-	  price: Number,
-	  qty: Number
-	```
+    ```js
+      name: String,
+      description: String,
+      img: String, // <---- this will hold an image url
+      price: Number,
+      qty: Number
+    ```
+
 1. Set up validations for the price and qty (can't be less than zero) and make the name a required field.
 
 1. Create a model and export it.
@@ -94,7 +96,7 @@ Make a product inventory manager with full CRUD using Mongoose.
 
 1. Make sure your controller can access your model:
 
-	`const Product = require('./models/products');`
+    `const Product = require('./models/products');`
 
 1. _NOTE:_ For testing purposes, especially for having quick access to those wacky Mongo ids, maybe think about having a route /json that res.sends an index of all the data in json format so that you can copy/paste ids into your url bar or cURL or what-have-you.
 
@@ -108,11 +110,11 @@ When the BUY button is pressed, it will make a request to update the qty of the 
 
 **Things to think about:**
 
-- What route should the BUY request go to? Maybe it could go to its own route.
-- Since it updates the product, should it go to a PUT route?
-- Do you need to send any data through to the route? You will need the id, but that is likely all you'll need.
-- Can you edit the qty value just in the route? product.qty -= 1?
-- Will you have to product.save() if you do this?
+-   What route should the BUY request go to? Maybe it could go to its own route.
+-   Since it updates the product, should it go to a PUT route?
+-   Do you need to send any data through to the route? You will need the id, but that is likely all you'll need.
+-   Can you edit the qty value just in the route? product.qty -= 1?
+-   Will you have to product.save() if you do this?
 
 ## Seed Data
 
@@ -125,41 +127,43 @@ _HANDY HINT:_ Make a route in your products controller /products/seed/ (you can 
 // Controller Function
 ///////////////////////////////////
 const seed = async (req, res) => {
-  const newProducts =
-    [
-      {
-        name: 'Beans',
-        description: 'A small pile of beans. Buy more beans for a big pile of beans.',
-        img: 'https://imgur.com/LEHS8h3.png',
-        price: 5,
-        qty: 99
-      }, {
-        name: 'Bones',
-        description: 'It\'s just a bag of bones.',
-        img: 'https://imgur.com/dalOqwk.png',
-        price: 25,
-        qty: 0
-      }, {
-        name: 'Bins',
-        description: 'A stack of colorful bins for your beans and bones.',
-        img: 'https://imgur.com/ptWDPO1.png',
-        price: 7000,
-        qty: 1
-      }
-    ]
+    const newProducts = [
+        {
+            name: 'Beans',
+            description:
+                'A small pile of beans. Buy more beans for a big pile of beans.',
+            img: 'https://imgur.com/LEHS8h3.png',
+            price: 5,
+            qty: 99,
+        },
+        {
+            name: 'Bones',
+            description: "It's just a bag of bones.",
+            img: 'https://imgur.com/dalOqwk.png',
+            price: 25,
+            qty: 0,
+        },
+        {
+            name: 'Bins',
+            description: 'A stack of colorful bins for your beans and bones.',
+            img: 'https://imgur.com/ptWDPO1.png',
+            price: 7000,
+            qty: 1,
+        },
+    ];
 
-  try {
-    const seedItems = await Product.create(newProducts)
-    res.send(seedItems)
-  } catch (err) {
-    res.send(err.message)
-  }
-}
+    try {
+        const seedItems = await Product.create(newProducts);
+        res.send(seedItems);
+    } catch (err) {
+        res.send(err.message);
+    }
+};
 
 ///////////////////////////////////
 // Routes
 ///////////////////////////////////
-app.get('/seed', ProductController.seed)
+app.get('/seed', ProductController.seed);
 ```
 
 ## Commits
@@ -173,6 +177,7 @@ The order in which you tackle this homework is up to you, but keep in mind that 
 **Index - Commit your work** <br>
 The commit message should read: <br>
 "Index working"
+
 <hr>
 
 <hr>
@@ -180,6 +185,7 @@ The commit message should read: <br>
 **Show - Commit your work** <br>
 The commit message should read: <br>
 "Show working"
+
 <hr>
 
 <hr>
@@ -195,6 +201,7 @@ The commit message should read: <br>
 **Update - Commit your work** <br>
 The commit message should read: <br>
 "Update working".
+
 <hr>
 
 <hr>
@@ -202,6 +209,7 @@ The commit message should read: <br>
 **Delete - Commit your work** <br>
 The commit message should read: <br>
 "Delete Working".
+
 <hr>
 
 <hr>
@@ -209,6 +217,7 @@ The commit message should read: <br>
 **Express Router - Commit your work** <br>
 The commit message should read: <br>
 "Express Router Working".
+
 <hr>
 
 <hr>
@@ -216,6 +225,7 @@ The commit message should read: <br>
 **Buy - Commit your work** <br>
 The commit message should read: <br>
 "Buy Button Working"
+
 <hr>
 
 <hr>
@@ -223,6 +233,7 @@ The commit message should read: <br>
 **CSS - Commit your work** <br>
 The commit message should read: <br>
 "App has style"
+
 <hr>
 
 </details>
@@ -244,10 +255,10 @@ See some previous student's examples for some inspiration for your store. Great 
 ### 2nd Model
 
 1. Make another model, this time for a User. The User will have:
-	```js
-	username: String,
-	shopping_cart: Array
-	```
+    ```js
+    username: String,
+    shopping_cart: Array
+    ```
 1. On the product show page, when a user presses BUY, the product will be added to the User's shopping cart.
 
 1. View the shopping cart on the User's show page. (The User will need only a show page and none of the other routes).
@@ -273,11 +284,13 @@ A store app that meets all the expected functionality outlined at the beginning 
 This assignment is due a week from being assigned
 
 **On the first couple of nights of this homework, you should work on having:**
-- The app setup, the database connected, the index and show page and new/create page done
+
+-   The app setup, the database connected, the index and show page and new/create page done
 
 **On the second couple of nights of this homework, you should continue working on it so that the app:**
-- Will have delete, update, buy button, router and some css added.
+
+-   Will have delete, update, buy button, router and some css added.
 
 ---
 
-*Copyright 2020, General Assembly Space. Licensed under [CC-BY-NC-SA, 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)*
+_Copyright 2020, General Assembly Space. Licensed under [CC-BY-NC-SA, 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)_
