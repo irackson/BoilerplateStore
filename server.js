@@ -22,6 +22,11 @@ const SECRET = process.env.SECRET || 'supersecret';
 //! Import the index routers
 const HomeRouter = require('./routes/home');
 
+var store = new connect({
+    uri: MONGODB_URL,
+    collection: 'mySessions',
+});
+
 //! __   __   ___      ___  ___          __   __
 //! /  ` |__) |__   /\   |  |__      /\  |__) |__)
 //! \__, |  \ |___ /~~\  |  |___    /~~\ |    |
@@ -61,14 +66,16 @@ app.use(express.urlencoded({ extended: false }));
 //! auth
 app.use(
     session({
-        secret: SECRET,
-        saveUninitialized: false, // don't create session until something stored
-        resave: false, //don't save session if unmodified
-        // store: new connect({
-        //     url: process.env.MONGODB_URL,
-        //     databaseName: 'MongooseStoreDB',
-        //     collection: 'users',
-        // }),
+        secret: 'This is a secret',
+        cookie: {
+            maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
+        },
+        store: store,
+        // Boilerplate options, see:
+        // * https://www.npmjs.com/package/express-session#resave
+        // * https://www.npmjs.com/package/express-session#saveuninitialized
+        resave: true,
+        saveUninitialized: true,
     })
 );
 

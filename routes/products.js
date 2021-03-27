@@ -1,6 +1,14 @@
 //! create our new router
 const router = require('express').Router();
-const { test, index } = require('../controllers/products');
+const {
+    index,
+    show,
+    newProduct,
+    create,
+    edit,
+    update,
+    destroy,
+} = require('../controllers/products');
 const { isAuthenticated, isAuthorized } = require('../utils/auth');
 
 ///////////////////////////////
@@ -10,12 +18,26 @@ const { isAuthenticated, isAuthorized } = require('../utils/auth');
 ////////////////////////////////
 //! Router Specific Routes
 ////////////////////////////////
+//* SHOW ALL
+router.get('/', index);
 
-//* INDEX
-router.get('/all', isAuthenticated, index);
+//* MAKE NEW
+router.get('/new', isAuthenticated, isAuthorized, newProduct);
 
-//* TEST
-router.get('/test', isAuthorized, test);
+//* SHOW ONE
+router.get('/:id', isAuthenticated, show);
+
+//* MAKE EDIT
+router.get('/:id/edit', isAuthenticated, isAuthorized, edit);
+
+//* PROCESS NEW
+router.post('/', isAuthenticated, isAuthorized, create);
+
+//* PROCESS EDIT
+router.put('/:id', isAuthenticated, isAuthorized, update);
+
+//* DESTROY ONE
+router.delete('/:id', isAuthenticated, isAuthorized, destroy);
 
 ////////////////////////////////
 //! Export the Router
