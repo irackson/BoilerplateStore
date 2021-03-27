@@ -14,7 +14,7 @@ const index = (req, res) => {
 
 const test = (req, res) => {
     res.send(
-        `You are logged in as ${req.session.user} so you may see this page`
+        `You are logged in as ${req.session.user}, an admin, so you may see this page`
     );
 };
 

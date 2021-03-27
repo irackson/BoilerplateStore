@@ -1,7 +1,7 @@
 //! create our new router
 const router = require('express').Router();
 const { test, index } = require('../controllers/products');
-const auth = require('../utils/auth');
+const { isAuthenticated, isAuthorized } = require('../utils/auth');
 
 ///////////////////////////////
 //! Router Specific Middleware
@@ -12,10 +12,10 @@ const auth = require('../utils/auth');
 ////////////////////////////////
 
 //* INDEX
-router.get('/all', auth, index);
+router.get('/all', isAuthenticated, index);
 
 //* TEST
-router.get('/test', auth, test);
+router.get('/test', isAuthorized, test);
 
 ////////////////////////////////
 //! Export the Router

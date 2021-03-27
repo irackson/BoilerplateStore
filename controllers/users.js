@@ -53,6 +53,7 @@ const loginSubmit = async (req, res) => {
             );
             if (result) {
                 req.session.user = user.username;
+                req.session.admin = user.admin;
                 res.redirect('/products/all');
             } else {
                 res.status(400).json({ error: 'Password is wrong' });

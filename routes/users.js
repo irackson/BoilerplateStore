@@ -8,7 +8,7 @@ const {
     logout,
     test,
 } = require('../controllers/users');
-const auth = require('../utils/auth');
+const { isAuthenticated } = require('../utils/auth');
 
 ///////////////////////////////
 //! Router Specific Middleware
@@ -34,7 +34,7 @@ router.post('/login', loginSubmit);
 router.get('/logout', logout);
 
 //* TEST
-router.get('/test', auth, test);
+router.get('/test', isAuthenticated, test);
 
 ////////////////////////////////
 //! Export the Router
