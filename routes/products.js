@@ -1,22 +1,21 @@
-//! import router
+//! create our new router
 const router = require('express').Router();
-const UsersRouter = require('./users');
-const ProductsRouter = require('./products');
+const { test, index } = require('../controllers/products');
+const auth = require('../utils/auth');
 
 ///////////////////////////////
 //! Router Specific Middleware
 ////////////////////////////////
 
-router.use('/users', UsersRouter);
-router.use('/products', ProductsRouter);
-
 ////////////////////////////////
 //! Router Specific Routes
 ////////////////////////////////
 
-router.get('/', (req, res) => {
-    res.render('home');
-});
+//* INDEX
+router.get('/all', auth, index);
+
+//* TEST
+router.get('/test', auth, test);
 
 ////////////////////////////////
 //! Export the Router

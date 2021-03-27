@@ -53,7 +53,7 @@ const loginSubmit = async (req, res) => {
             );
             if (result) {
                 req.session.user = user.username;
-                res.json({ message: 'You are logged in' });
+                res.redirect('/products/all');
             } else {
                 res.status(400).json({ error: 'Password is wrong' });
             }
