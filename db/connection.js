@@ -11,7 +11,7 @@ const { log } = require('mercedlogger');
 //! \__, \__/ | \| | \| |___ \__,  |
 
 //* retrieving our mongo url from our environmental variables (.env)
-const mongodbURL =
+const MONGODB_URL =
     process.env.MONGODB_URL || 'mongodb://localhost:27017/database';
 //* store the connection object inside a variable called...
 const db = mongoose.connection;
@@ -23,7 +23,7 @@ const mongoconfig = {
     useCreateIndex: true,
 };
 //* connect to the database
-mongoose.connect(mongodbURL, mongoconfig, () => {
+mongoose.connect(MONGODB_URL, mongoconfig, () => {
     log.cyan('STATUS', 'the connection with mongod is established');
     // console.log('the connection with mongod is established'.rainbow.bold);
 });

@@ -10,7 +10,19 @@
         </header>
         <main>
             <h2>Login or create an account to enter the store</h2>
-            <%- include('./partials/account.ejs') %>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/users/create">Sign up</a>
+                    </li>
+                    <li>
+                        <a href="/users/login">Login</a>
+                    </li>
+                    <li>
+                        <a href="/users/logout">Logout</a>
+                    </li>
+                </ul>
+            </nav>
         </main>
     </body>
 </html>

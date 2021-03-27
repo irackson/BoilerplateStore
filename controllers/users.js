@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+const { log } = require('mercedlogger');
+
 const bcrypt = require('bcryptjs');
 const saltRounds = parseInt(process.env.SALT_ROUNDS) || 10;
 ////////////////////////
@@ -12,6 +14,7 @@ const User = require('../models/User');
 ///////////////////////////
 
 const getCreate = async (req, res) => {
+    req.session.user = undefined;
     res.render('users/create');
 };
 
@@ -20,28 +23,45 @@ const createSubmit = async (req, res) => {
     const salt = await bcrypt.genSalt(saltRounds);
     req.body.password = await bcrypt.hash(req.body.password, salt);
     const user = await User.create(req.body);
-    console.log(user);
     res.redirect('/users/login');
 };
 
 const getLogin = async (req, res) => {
+    req.session.user = undefined;
     res.render('users/login');
 };
 
 const loginSubmit = async (req, res) => {
     try {
-        const user = await User.find({ username: req.body.username });
+        const user = await User.findOne({ username: req.body.username });
         if (user) {
             const result = await bcrypt.compare(
                 req.body.password,
                 user.password
             );
+            if (result) {
+                req.session.user = user.username;
+                res.json({ message: 'You are logged in' });
+            } else {
+                res.status(400).json({ error: 'Password is wrong' });
+            }
         } else {
             res.status(400).json({ error: 'No User by That Name' });
         }
     } catch (error) {
         res.json(error);
     }
+};
+
+const logout = (req, res) => {
+    req.session.user = undefined;
+    res.json({ message: 'You have logged out' });
+};
+
+const test = (req, res) => {
+    res.send(
+        `You are logged in as ${req.session.user} so you may see this page`
+    );
 };
 
 //////////////////////////////
@@ -52,4 +72,6 @@ module.exports = {
     createSubmit,
     getLogin,
     loginSubmit,
+    logout,
+    test,
 };

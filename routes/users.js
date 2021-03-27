@@ -5,7 +5,10 @@ const {
     createSubmit,
     getLogin,
     loginSubmit,
+    logout,
+    test,
 } = require('../controllers/users');
+const auth = require('../utils/auth');
 
 ///////////////////////////////
 //! Router Specific Middleware
@@ -26,6 +29,12 @@ router.get('/login', getLogin);
 
 //* LOGIN SUBMIT
 router.post('/login', loginSubmit);
+
+//* LOGOUT
+router.get('/logout', logout);
+
+//* TEST
+router.get('/test', auth, test);
 
 ////////////////////////////////
 //! Export the Router
