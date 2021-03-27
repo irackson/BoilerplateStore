@@ -66,8 +66,8 @@ app.use(
         resave: false, //don't save session if unmodified
         // store: new connect({
         //     url: process.env.MONGODB_URL,
-        //     databaseName: 'sessions',
-        //     collection: 'sessions',
+        //     databaseName: 'MongooseStoreDB',
+        //     collection: 'users',
         // }),
     })
 );

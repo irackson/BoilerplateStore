@@ -5,11 +5,13 @@ const { Schema, model } = require('../db/connection');
 //! DEFINE OUR SCHEMA
 ///////////////////////////////////
 
-const UserSchema = new Schema(
+const ProductSchema = new Schema(
     {
-        username: { type: String, unique: true, required: true },
-        password: { type: String, required: true },
-        admin: { type: Boolean, required: true },
+        name: String,
+        description: String,
+        img: String, // <---- this will hold an image url
+        price: Number,
+        qty: Number,
     },
     { timestamps: true }
 );
@@ -18,10 +20,10 @@ const UserSchema = new Schema(
 //! DEFINE OUR MODEL
 ///////////////////////////////////
 
-const User = model('User', UserSchema);
+const Product = model('Product', ProductSchema);
 
 ///////////////////////////////////
 //! Export Our Model
 ///////////////////////////////////
 
-module.exports = User;
+module.exports = Product;

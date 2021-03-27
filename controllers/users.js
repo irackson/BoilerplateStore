@@ -4,6 +4,7 @@ const { log } = require('mercedlogger');
 
 const bcrypt = require('bcryptjs');
 const saltRounds = parseInt(process.env.SALT_ROUNDS) || 10;
+const adminCode = process.env.ADMIN_CODE || '';
 ////////////////////////
 //! Import Models
 ////////////////////////
@@ -20,6 +21,17 @@ const getCreate = async (req, res) => {
 
 const createSubmit = async (req, res) => {
     //TODO: DEAL WITH TAKEN USERNAME (MUST BE  UNIQUE)
+
+    if (
+        req.body.admin === 'on' &&
+        (req.body.admin_code === adminCode ||
+            req.body.admin_code === adminCode.toLowerCase())
+    ) {
+        req.body.admin = true;
+    } else {
+        req.body.admin = false;
+    }
+
     const salt = await bcrypt.genSalt(saltRounds);
     req.body.password = await bcrypt.hash(req.body.password, salt);
     const user = await User.create(req.body);
