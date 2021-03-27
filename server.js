@@ -66,7 +66,7 @@ app.use(express.urlencoded({ extended: false }));
 //! auth
 app.use(
     session({
-        secret: 'This is a secret',
+        secret: SECRET,
         cookie: {
             maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
         },

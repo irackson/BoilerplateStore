@@ -10,6 +10,10 @@ const UserSchema = new Schema(
         username: { type: String, unique: true, required: true },
         password: { type: String, required: true },
         admin: { type: Boolean, required: true },
+        cart: {
+            items: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
+            discount: Number,
+        },
     },
     { timestamps: true }
 );
