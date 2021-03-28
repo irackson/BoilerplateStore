@@ -7,6 +7,7 @@ const {
     create,
     edit,
     update,
+    buy,
     destroy,
 } = require('../controllers/products');
 const { isAuthenticated, isAuthorized } = require('../utils/auth');
@@ -36,6 +37,9 @@ router.post('/', isAuthenticated, isAuthorized, create);
 
 //* PROCESS EDIT
 router.put('/:id', isAuthenticated, isAuthorized, update);
+
+//* PROCESS BUY
+router.patch('/:id', isAuthenticated, buy);
 
 //* DESTROY ONE
 router.delete('/:id', isAuthenticated, isAuthorized, destroy);

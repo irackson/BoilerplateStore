@@ -12,7 +12,9 @@
             <h2>All Products</h2>
             <% if (admin) { %>
             <a href="/products/new">Add New Product</a>
-            <% } %>
+            <% } %> <% if (products.length === 0) { %>
+            <div class="product-index__closed-container"></div>
+            <% } else { %>
             <div class="product-index__flex-container">
                 <% for (product of products) { %>
                 <div class="product-index__item-container">
@@ -28,6 +30,7 @@
                 </div>
                 <% } %>
             </div>
+            <% } %>
         </main>
         <%- include('../partials/nav.ejs') %>
     </body>

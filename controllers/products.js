@@ -57,6 +57,7 @@ const edit = async (req, res) => {
 };
 
 const update = async (req, res) => {
+    console.log('THIS IS AN UPDATE');
     const product = await Product.findById(req.params.id);
     const edits = req.body;
     for (const property in edits) {
@@ -68,6 +69,12 @@ const update = async (req, res) => {
     res.redirect(`${req.params.id}`);
 };
 
+const buy = async (req, res) => {
+    const product = await Product.findById(req.params.id, 'qty');
+    await Product.findByIdAndUpdate(req.params.id, { qty: product.qty - 1 });
+    res.redirect('/products');
+};
+
 const destroy = async (req, res) => {
     await Product.findByIdAndDelete(req.params.id);
     res.redirect('/products');
@@ -76,4 +83,13 @@ const destroy = async (req, res) => {
 //////////////////////////////
 //! Export Controller
 //////////////////////////////
-module.exports = { index, show, newProduct, create, edit, update, destroy };
+module.exports = {
+    index,
+    show,
+    newProduct,
+    create,
+    edit,
+    update,
+    buy,
+    destroy,
+};

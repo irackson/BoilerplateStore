@@ -39,9 +39,23 @@ h2 {
 .product-index {
     width: 100vw;
     height: 80vh;
+    position: relative;
 
     h2 {
         margin-bottom: 10px;
+    }
+
+    &__closed-container {
+        background-image: url('https://s3.eu-west-1.amazonaws.com/presspage-production-content/uploads/2170/sorry_we_re_closed.jpg');
+        width: 40%;
+        height: 60%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     &__flex-container {
