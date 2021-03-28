@@ -39,6 +39,10 @@ router.put('/:id', isAuthenticated, isAuthorized, update);
 //* DESTROY ONE
 router.delete('/:id', isAuthenticated, isAuthorized, destroy);
 
+/* //! CATCHALL
+router.get('/*', (req, res) => {
+    res.redirect('/');
+}); */
 ////////////////////////////////
 //! Export the Router
 ////////////////////////////////

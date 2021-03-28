@@ -2,21 +2,36 @@
 <html lang="en">
     <head>
         <%- include('../partials/head.ejs') %>
-        <title>Edit</title>
+        <title>All Products</title>
     </head>
     <body>
         <header class="all__header">
             <%- include('../partials/header.ejs') %>
         </header>
-        <main>
+        <main class="product-index">
             <h2>All Products</h2>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="../users/logout">Logout</a>
-                    </li>
-                </ul>
-            </nav>
+            <div class="product-index__flex-container">
+                <% for (product of products) { %>
+                <div class="product-index__item-container">
+                    <h4 class="product-index__item-name">
+                        <%= product.name %>
+                    </h4>
+                    <a href="/products/<%= product._id %>">
+                        <img
+                            src="<%= product.img  %>"
+                            alt="<%= product.name  %>"
+                    /></a>
+                    <h6>Price: $<span><%= product.price %> </span></h6>
+                </div>
+                <% } %>
+            </div>
         </main>
+        <nav>
+            <ul>
+                <li>
+                    <a href="../users/logout">Logout</a>
+                </li>
+            </ul>
+        </nav>
     </body>
 </html>
