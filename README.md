@@ -1,3 +1,13 @@
+# <span style="color:orange">TODO</span>
+
+1. Buy button
+2. Shopping Cart
+3. Use either jQuery or MongoDB to sort your items and display them alphabetically/by price.
+4. style homepage
+5. style no permission / redirect with client-side js after setTimeout
+
+** To use jQuery load the jQquery script tags into your head tags in your ejs templates. Then add a javascript file in your public folder and link your ejs file to it using a script tag **
+
 # RESOURCES
 
 -   #### <a href="https://www.youtube.com/playlist?list=PLY6oTPmKnKbb4uE8ym45pLaaE76sUwvBL">Tutorial</a>

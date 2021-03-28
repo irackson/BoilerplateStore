@@ -87,4 +87,103 @@ h2 {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.product-show {
+  width: 100vw;
+  height: 80vh;
+}
+
+.product-show h2 {
+  margin-bottom: 10px;
+}
+
+.product-show__flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1em;
+}
+
+.product-show__item-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: var(--color-imgBackground);
+  border-radius: 1em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.product-show img {
+  width: 400px;
+  height: 400px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.product-edit,
+.product-new {
+  width: 100vw;
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+}
+
+.product-edit h2,
+.product-new h2 {
+  margin-bottom: 10px;
+}
+
+.product-edit__flex-container,
+.product-new__flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: normal;
+      -ms-flex-align: normal;
+          align-items: normal;
+}
+
+.product-edit li,
+.product-new li {
+  padding: 1em;
+}
+
+.product-edit input,
+.product-new input {
+  border: none;
+}
 /*# sourceMappingURL=style.css.map */

@@ -37,6 +37,13 @@ const newProduct = async (req, res) => {
 };
 
 const create = async (req, res) => {
+    const product = req.body;
+    for (property in product) {
+        if (product[property] === '') {
+            product[property] = undefined;
+        }
+    }
+    await Product.create(product);
     res.redirect('/products');
 };
 
@@ -52,14 +59,11 @@ const edit = async (req, res) => {
 const update = async (req, res) => {
     const product = await Product.findById(req.params.id);
     const edits = req.body;
-    console.log(product);
-    console.log(edits);
     for (const property in edits) {
         if (edits[property] !== '') {
             product[property] = edits[property];
         }
     }
-    console.log(product);
     await Product.findByIdAndUpdate(req.params.id, product);
     res.redirect(`${req.params.id}`);
 };

@@ -5,10 +5,10 @@
         <title>Edit</title>
     </head>
     <body>
-        <header class="edit__header">
+        <header class="product__header">
             <%- include('../partials/header.ejs') %>
         </header>
-        <main>
+        <main class="product-edit">
             <h2>Edit Item</h2>
             <form
                 action="/products/<%= product._id %>?_method=PUT"
@@ -27,7 +27,7 @@
                             />
                         </li>
                         <li>
-                            <label for="img">Image:</label>
+                            <label for="img">Image URL:</label>
                             <input
                                 type="text"
                                 name="img"
@@ -45,21 +45,23 @@
                             />
                         </li>
                         <li>
-                            <label for="price">Price:</label>
+                            <label for="price">Price ($USD):</label>
                             <input
-                                type="text"
+                                type="number"
                                 id="price"
                                 name="price"
+                                step=".01"
                                 placeholder="<%= product.price %>"
                             />
                         </li>
                         <li>
-                            <label for="qty">Number in stock:</label>
+                            <label for="qty">Units in stock:</label>
                             <input
                                 type="number"
                                 id="qty"
                                 name="qty"
                                 min="0"
+                                step="1"
                                 value="<%= product.qty %>"
                             />
                         </li>

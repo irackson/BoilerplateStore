@@ -7,11 +7,15 @@ const { Schema, model } = require('../db/connection');
 
 const ProductSchema = new Schema(
     {
-        name: String,
-        description: String,
-        img: String, // <---- this will hold an image url
-        price: Number,
-        qty: Number,
+        name: { type: String, default: 'Thingamajig' },
+        description: { type: String, default: 'indescribable' },
+        img: {
+            type: String,
+            default:
+                'https://www.clipartkey.com/mpngs/m/34-345049_clip-art-mystery-box-clip-art-cardboard-box.png',
+        },
+        price: { type: Number, default: 0.01 },
+        qty: { type: Number, default: 0 },
     },
     { timestamps: true }
 );
