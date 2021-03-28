@@ -10,18 +10,30 @@ const Product = require('../models/Product');
 ///////////////////////////
 
 const index = async (req, res) => {
-    const products = await Product.find({ qty: { $gt: 0 } });
+    const products = req.session.admin
+        ? await Product.find({})
+        : await Product.find({ qty: { $gt: 0 } });
     res.render('products/index', {
         products,
+        loggedIn: req.session.user,
+        admin: req.session.admin,
     });
 };
 
 const show = async (req, res) => {
-    res.render('products/show');
+    const product = await Product.findById(req.params.id);
+    res.render('products/show', {
+        product,
+        loggedIn: req.session.user,
+        admin: req.session.admin,
+    });
 };
 
 const newProduct = async (req, res) => {
-    res.render('products/new');
+    res.render('products/new', {
+        loggedIn: req.session.user,
+        admin: req.session.admin,
+    });
 };
 
 const create = async (req, res) => {
@@ -29,7 +41,10 @@ const create = async (req, res) => {
 };
 
 const edit = async (req, res) => {
-    res.render('products/edit');
+    res.render('products/edit', {
+        loggedIn: req.session.user,
+        admin: req.session.admin,
+    });
 };
 
 const update = async (req, res) => {

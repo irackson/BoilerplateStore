@@ -2,20 +2,69 @@
 <html lang="en">
     <head>
         <%- include('../partials/head.ejs') %>
+        <title><%= product.name %></title>
     </head>
     <body>
         <header class="show__header">
             <%- include('../partials/header.ejs') %>
         </header>
         <main>
-            <h2>Product Details</h2>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="../users/logout">Logout</a>
-                    </li>
-                </ul>
-            </nav>
+            <main class="product-show">
+                <h2><%= product.name %></h2>
+                <div class="product-show__flex-container">
+                    <div class="product-show__item-container">
+                        <img
+                            src="<%= product.img  %>"
+                            alt="<%= product.name  %>"
+                        />
+                        <h4><%= product.description %></h4>
+                        <h6>Price: $<span><%= product.price %> </span></h6>
+                        <% if (product.qty === 0) { %>
+                        <h5>OUT OF STOCK</h5>
+                        <% } else { %>
+                        <h5><%= product.price %> remaining</h5>
+                        <% } %> <% if (admin) { %>
+                        <form
+                            action="/products/<%= product._id %>/edit?_method=GET"
+                            method="GET"
+                        >
+                            <button
+                                class="btn product-show__edit"
+                                type="submit"
+                            >
+                                EDIT
+                            </button>
+                        </form>
+                        <% } else { %>
+                        <form
+                            action="/products/<%= product._id %>?_method=PUT"
+                            method="POST"
+                            autocomplete="off"
+                        >
+                            <button class="btn product-show__buy" type="submit">
+                                BUY
+                            </button>
+                        </form>
+                        <% } %>
+                    </div>
+                    <% if (admin) { %>
+                    <div class="product-show__delete-container">
+                        <form
+                            action="/products/<%= product._id %>?_method=DELETE"
+                            method="POST"
+                        >
+                            <button
+                                class="btn product-show__delete"
+                                type="submit"
+                            >
+                                DELETE
+                            </button>
+                        </form>
+                    </div>
+                    <% } %>
+                </div>
+            </main>
+            <%- include('../partials/nav.ejs') %>
         </main>
     </body>
 </html>

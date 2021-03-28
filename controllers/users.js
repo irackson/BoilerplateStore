@@ -68,7 +68,10 @@ const loginSubmit = async (req, res) => {
 
 const logout = (req, res) => {
     req.session.user = undefined;
-    res.json({ message: 'You have logged out' });
+    req.session.admin = undefined;
+    res.render('home', {
+        loggedIn: req.session.user,
+    });
 };
 
 const test = (req, res) => {

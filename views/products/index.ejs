@@ -10,6 +10,9 @@
         </header>
         <main class="product-index">
             <h2>All Products</h2>
+            <% if (admin) { %>
+            <a href="/products/new">Add New Product</a>
+            <% } %>
             <div class="product-index__flex-container">
                 <% for (product of products) { %>
                 <div class="product-index__item-container">
@@ -26,12 +29,6 @@
                 <% } %>
             </div>
         </main>
-        <nav>
-            <ul>
-                <li>
-                    <a href="../users/logout">Logout</a>
-                </li>
-            </ul>
-        </nav>
+        <%- include('../partials/nav.ejs') %>
     </body>
 </html>

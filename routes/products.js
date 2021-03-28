@@ -18,6 +18,7 @@ const { isAuthenticated, isAuthorized } = require('../utils/auth');
 ////////////////////////////////
 //! Router Specific Routes
 ////////////////////////////////
+//TODO: review order
 //* SHOW ALL
 router.get('/', index);
 
