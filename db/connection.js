@@ -19,7 +19,7 @@ const db = mongoose.connection;
 const mongoconfig = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: true,
+    useFindAndModify: false,
     useCreateIndex: true,
 };
 //* connect to the database

@@ -41,20 +41,32 @@ const create = async (req, res) => {
 };
 
 const edit = async (req, res) => {
+    const product = await Product.findById(req.params.id);
     res.render('products/edit', {
+        product,
         loggedIn: req.session.user,
         admin: req.session.admin,
     });
 };
 
 const update = async (req, res) => {
-    // res.redirect(`${req.params.id}`);
+    const product = await Product.findById(req.params.id);
+    const edits = req.body;
+    console.log(product);
+    console.log(edits);
+    for (const property in edits) {
+        if (edits[property] !== '') {
+            product[property] = edits[property];
+        }
+    }
+    console.log(product);
+    await Product.findByIdAndUpdate(req.params.id, product);
+    res.redirect(`${req.params.id}`);
 };
 
 const destroy = async (req, res) => {
-    res.send(
-        `You are logged in as ${req.session.user}, an admin, so you may see this page`
-    );
+    await Product.findByIdAndDelete(req.params.id);
+    res.redirect('/products');
 };
 
 //////////////////////////////

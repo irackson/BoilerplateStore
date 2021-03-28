@@ -9,7 +9,64 @@
             <%- include('../partials/header.ejs') %>
         </header>
         <main>
-            <h2>Edit</h2>
+            <h2>Edit Item</h2>
+            <form
+                action="/products/<%= product._id %>?_method=PUT"
+                method="POST"
+                autocomplete="off"
+            >
+                <div class="product-edit__flex-container">
+                    <ul>
+                        <li>
+                            <label for="name">Item name:</label>
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                placeholder="<%= product.name %>"
+                            />
+                        </li>
+                        <li>
+                            <label for="img">Image:</label>
+                            <input
+                                type="text"
+                                name="img"
+                                id="img"
+                                placeholder="<%= product.img %> "
+                            />
+                        </li>
+                        <li>
+                            <label for="description">Description:</label>
+                            <input
+                                type="text"
+                                name="description"
+                                id="description"
+                                placeholder="<%= product.description %>"
+                            />
+                        </li>
+                        <li>
+                            <label for="price">Price:</label>
+                            <input
+                                type="text"
+                                id="price"
+                                name="price"
+                                placeholder="<%= product.price %>"
+                            />
+                        </li>
+                        <li>
+                            <label for="qty">Number in stock:</label>
+                            <input
+                                type="number"
+                                id="qty"
+                                name="qty"
+                                min="0"
+                                value="<%= product.qty %>"
+                            />
+                        </li>
+                    </ul>
+                </div>
+                <button id="edit" class="btn" type="submit">SAVE</button>
+            </form>
         </main>
         <%- include('../partials/nav.ejs') %>
     </body>

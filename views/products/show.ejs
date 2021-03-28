@@ -22,7 +22,7 @@
                         <% if (product.qty === 0) { %>
                         <h5>OUT OF STOCK</h5>
                         <% } else { %>
-                        <h5><%= product.price %> remaining</h5>
+                        <h5><%= product.qty %> remaining</h5>
                         <% } %> <% if (admin) { %>
                         <form
                             action="/products/<%= product._id %>/edit?_method=GET"
