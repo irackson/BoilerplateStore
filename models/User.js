@@ -12,7 +12,7 @@ const UserSchema = new Schema(
         admin: { type: Boolean, required: true },
         cart: {
             items: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
-            discount: Number,
+            discount: { type: Number, default: 0 },
         },
     },
     { timestamps: true }

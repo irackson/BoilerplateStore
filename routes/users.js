@@ -6,9 +6,10 @@ const {
     getLogin,
     loginSubmit,
     logout,
-    test,
+    getClientCart,
+    getAllOrders,
 } = require('../controllers/users');
-const { isAuthenticated } = require('../utils/auth');
+const { isAuthenticated, isAuthorized } = require('../utils/auth');
 
 ///////////////////////////////
 //! Router Specific Middleware
@@ -33,8 +34,11 @@ router.post('/login', loginSubmit);
 //* LOGOUT
 router.get('/logout', logout);
 
-//* TEST
-router.get('/test', isAuthenticated, test);
+//* CLIENT CART PAGE
+router.get('/cart', isAuthenticated, getClientCart);
+
+//* ADMIN ORDERS PAGE
+router.get('/orders', isAuthenticated, isAuthorized, getAllOrders);
 
 ////////////////////////////////
 //! Export the Router

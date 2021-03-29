@@ -74,10 +74,25 @@ const logout = (req, res) => {
     });
 };
 
-const test = (req, res) => {
-    res.send(
-        `You are logged in as ${req.session.user} so you may see this page`
-    );
+const getClientCart = async (req, res) => {
+    const user = await User.findOne({ username: req.session.user });
+
+    if (req.session.admin) {
+        res.redirect('/users/orders');
+    } else {
+        res.render('users/cart', {
+            user,
+            loggedIn: req.session.user,
+            admin: req.session.admin,
+        });
+    }
+};
+
+const getAllOrders = async (req, res) => {
+    const users = await User.find({ admin: false }, '-password');
+    res.render('users/orders', {
+        users,
+    });
 };
 
 //////////////////////////////
@@ -89,5 +104,6 @@ module.exports = {
     getLogin,
     loginSubmit,
     logout,
-    test,
+    getClientCart,
+    getAllOrders,
 };

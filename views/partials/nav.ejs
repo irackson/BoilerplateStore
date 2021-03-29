@@ -3,7 +3,11 @@
         <li>
             <% if (loggedIn) { %>
             <a class="btn" href="/users/logout">Logout</a>
+            <% if (admin) { %>
+            <a class="btn" href="/users/orders">View Orders</a>
             <% } else { %>
+            <a class="btn" href="/users/cart">View Cart</a>
+            <% } %> <% } else { %>
             <a class="btn" href="/users/login">Login</a>
             <a class="btn" href="/users/create">Sign up</a>
             <% } %>

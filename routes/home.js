@@ -17,6 +17,7 @@ router.use('/products', ProductsRouter);
 router.get('/', (req, res) => {
     res.render('home', {
         loggedIn: req.session.user,
+        admin: req.session.admin,
     });
 });
 
