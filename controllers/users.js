@@ -75,30 +75,38 @@ const logout = (req, res) => {
     });
 };
 
+function cleanCart(inputList) {
+    /* based on https://stackoverflow.com/a/19395302 */
+    let counts = {};
+    inputList.forEach(function (x) {
+        counts[x] = (counts[x] || 0) + 1;
+    });
+    console.log(Object.keys(counts)[0]);
+    console.log(Object.values(counts)[0]);
+}
+
 const getClientCart = async (req, res) => {
     if (req.session.admin) {
         res.redirect('/users/orders');
     } else {
-        /* const user = await User.findOne(
-            { username: req.session.user },
-            '-password'
-        ); */
-
         const user = await User.findOne({
             username: req.session.user,
-        }).populate('cart.items');
+        }).populate(
+            'cart.items',
+            '-qty -description -createdAt -updatedAt -__v'
+        );
 
-        // console.log(user);
-        console.log(`username: ${user.username}`);
-        console.table(user.cart.items);
+        // console.log(`username: ${user.username}`);
 
-        res.render('users/cart', {
-            username: user.username,
-            items: user.cart.items,
-            discount: user.cart.discount,
-            loggedIn: req.session.user,
-            admin: req.session.admin,
-        });
+        const items = cleanCart(user.cart.items);
+
+        // res.render('users/cart', {
+        //     username: user.username,
+        //     items: user.cart.items,
+        //     discount: user.cart.discount,
+        //     loggedIn: req.session.user,
+        //     admin: req.session.admin,
+        // });
     }
 };
 

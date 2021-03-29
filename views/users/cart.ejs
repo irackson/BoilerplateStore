@@ -11,7 +11,10 @@
             <div class="users-cart__list">
                 <ul>
                     <% for (item of items ) { %>
-                    <li>Item Name: <%= item._doc.name %></li>
+                    <li>
+                        Item Name: <%= item._doc.name %>, Item ID: <%=
+                        item._doc._id %>
+                    </li>
                     <% } %>
                 </ul>
             </div>
