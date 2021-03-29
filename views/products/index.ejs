@@ -5,13 +5,16 @@
         <title>All Products</title>
     </head>
     <body>
+        <%- include('../partials/nav.ejs') %>
         <header class="product__header">
             <%- include('../partials/header.ejs') %>
         </header>
         <main class="product-index">
             <h2>All Products</h2>
             <% if (admin) { %>
-            <a href="/products/new">Add New Product</a>
+            <div id="add-new">
+                <a href="/products/new"> Add New Product </a>
+            </div>
             <% } %> <% if (products.length === 0) { %>
             <div class="product-index__closed-container"></div>
             <% } else { %>
@@ -32,6 +35,5 @@
             </div>
             <% } %>
         </main>
-        <%- include('../partials/nav.ejs') %>
     </body>
 </html>

@@ -2,7 +2,7 @@
   --color-primary: rgb(105, 0, 128);
   --color-secondary: #0df2c9;
   --color-background: #b1f1ea;
-  --color-pageTitle: #7135fd;
+  --color-pageTitle: #3900bd;
   --color-imgBackground: lemonchiffon;
 }
 
@@ -12,11 +12,15 @@ body {
 
 .btn {
   font-family: 'Special Elite', cursive;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
   line-height: 1.5;
   font: 700 1.2rem 'Roboto Slab', sans-serif;
-  padding: 1em 2em;
+  padding-top: 0.4em;
+  padding-bottom: 0.3em;
+  padding-left: 1em;
+  padding-right: 1em;
   letter-spacing: 0.05rem;
 }
 
@@ -52,6 +56,7 @@ h1 {
   color: var(--color-primary);
   text-align: center;
   font-family: 'Permanent Marker', cursive;
+  padding-top: 10px;
 }
 
 h2 {
@@ -69,13 +74,12 @@ nav li {
       -ms-flex-pack: justify;
           justify-content: space-between;
   -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 1px solid black;
 }
 
 .home {
@@ -91,12 +95,15 @@ nav li {
           justify-content: center;
   text-align: center;
   height: 40vh;
+  width: 100vw;
 }
 
 .home a {
-  padding: 3em;
-  font-size: 2em;
+  padding: 0em 3em 0em 3em;
+  font-size: 4em;
   color: #e9c600;
+  font-family: 'Permanent Marker', cursive;
+  text-decoration: none;
 }
 
 .users-create,
@@ -156,14 +163,56 @@ nav li {
   padding-bottom: 30px;
 }
 
+.users-create .user-create__admin-list input,
+.users-login .user-create__admin-list input {
+  text-align: center;
+  margin-top: 10px;
+}
+
 .users-create input,
 .users-login input {
   border: none;
+  border-radius: 3px;
+}
+
+#login-button {
+  margin-top: 50px;
 }
 
 #admin-aside {
   font-family: 'Tangerine', cursive;
   font-size: 1.2em;
+}
+
+#add-new,
+#return-all {
+  text-align: center;
+  padding-bottom: 15px;
+  text-decoration: none;
+  font-size: 1.6em;
+  font-family: 'Tangerine', cursive;
+  color: black;
+}
+
+#add-new :hover,
+#return-all :hover {
+  background-color: lemonchiffon;
+  border-radius: 5px;
+}
+
+#add-new :visited,
+#return-all :visited {
+  color: red;
+}
+
+#add-new :active,
+#return-all :active {
+  color: green;
+}
+
+#add-new a,
+#return-all a {
+  padding: 4px;
 }
 
 .product-index {
@@ -236,6 +285,7 @@ nav li {
 .product-show {
   width: 100vw;
   height: 80vh;
+  text-align: center;
 }
 
 .product-show h2 {
@@ -280,8 +330,8 @@ nav li {
 }
 
 .product-show img {
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   padding-left: 10px;
   padding-right: 10px;
 }

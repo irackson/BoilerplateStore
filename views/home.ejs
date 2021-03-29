@@ -5,11 +5,11 @@
         <title>Login to Store</title>
     </head>
     <body>
+        <%- include('./partials/nav.ejs') %>
         <header><%- include('./partials/header.ejs') %></header>
         <main class="home">
             <h2>Welcome!</h2>
-            <a class="btn" href="/products">ENTER THE STORE</a>
+            <a class="home__enter" href="/products">ENTER</a>
         </main>
-        <%- include('./partials/nav.ejs') %>
     </body>
 </html>

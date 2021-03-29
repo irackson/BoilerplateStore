@@ -5,13 +5,16 @@
         <title><%= product.name %></title>
     </head>
     <body>
+        <%- include('../partials/nav.ejs') %>
         <header class="product__header">
             <%- include('../partials/header.ejs') %>
         </header>
         <main>
             <main class="product-show">
                 <h2><%= product.name %></h2>
-                <a href="/products">Return to All Products</a>
+                <div id="return-all">
+                    <a href="/products">Return to All Products</a>
+                </div>
                 <div class="product-show__flex-container">
                     <div class="product-show__item-container">
                         <img
@@ -65,7 +68,6 @@
                     <% } %>
                 </div>
             </main>
-            <%- include('../partials/nav.ejs') %>
         </main>
     </body>
 </html>

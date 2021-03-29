@@ -8,7 +8,7 @@
     --color-primary: rgb(105, 0, 128);
     --color-secondary: #0df2c9;
     --color-background: #b1f1ea;
-    --color-pageTitle: #7135fd;
+    --color-pageTitle: #3900bd;
     --color-imgBackground: lemonchiffon;
 }
 
@@ -18,12 +18,15 @@ body {
 
 .btn {
     font-family: 'Special Elite', cursive;
-    // background: none;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
     line-height: 1.5;
     font: 700 1.2rem 'Roboto Slab', sans-serif;
-    padding: 1em 2em;
+    padding-top: 0.4em;
+    padding-bottom: 0.3em;
+    padding-left: 1em;
+    padding-right: 1em;
     letter-spacing: 0.05rem;
 
     &:focus {
@@ -59,6 +62,7 @@ h1 {
     color: var(--color-primary);
     text-align: center;
     font-family: 'Permanent Marker', cursive;
+    padding-top: 10px;
 }
 
 h2 {
@@ -71,10 +75,8 @@ h2 {
 nav li {
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
+    flex-direction: row-reverse;
     align-items: center;
-
-    border: 1px solid black;
 }
 
 .home {
@@ -83,11 +85,15 @@ nav li {
     justify-content: center;
     text-align: center;
     height: 40vh;
+    width: 100vw;
+    // background: url('https://i.imgur.com/F2qaV0d.png') center no-repeat;
 
     a {
-        padding: 3em;
-        font-size: 2em;
+        padding: 0em 3em 0em 3em;
+        font-size: 4em;
         color: rgb(233, 198, 0);
+        font-family: 'Permanent Marker', cursive;
+        text-decoration: none;
     }
 }
 
@@ -121,16 +127,52 @@ nav li {
         flex-direction: row;
         overflow: visible;
         padding-bottom: 30px;
+
+        input {
+            text-align: center;
+            margin-top: 10px;
+        }
     }
 
     input {
         border: none;
+        border-radius: 3px;
     }
+}
+
+#login-button {
+    margin-top: 50px;
 }
 
 #admin-aside {
     font-family: 'Tangerine', cursive;
     font-size: 1.2em;
+}
+
+#add-new,
+#return-all {
+    text-align: center;
+    padding-bottom: 15px;
+    text-decoration: none;
+    font-size: 1.6em;
+    font-family: 'Tangerine', cursive;
+    color: black;
+    :hover {
+        background-color: lemonchiffon;
+        border-radius: 5px;
+    }
+
+    :visited {
+        color: red;
+    }
+
+    :active {
+        color: green;
+    }
+
+    a {
+        padding: 4px;
+    }
 }
 
 .product-index {
@@ -184,6 +226,7 @@ nav li {
 .product-show {
     width: 100vw;
     height: 80vh;
+    text-align: center;
 
     h2 {
         margin-bottom: 10px;
@@ -209,8 +252,8 @@ nav li {
     }
 
     img {
-        width: 400px;
-        height: 400px;
+        width: 300px;
+        height: 300px;
         padding-left: 10px;
         padding-right: 10px;
     }

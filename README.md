@@ -1,9 +1,8 @@
 # <span style="color:orange">TODO</span>
 
 -   Shopping Cart
+-   create new account client-side validation (no empty username, no empty password, if admin pw wrong --> don't make account, redirect)
 -   Use either jQuery or MongoDB to sort your items and display them alphabetically/by price.
--   style homepage
--   style login page
 -   style no permission / redirect with client-side js after setTimeout
 
 ** To use jQuery load the jQuery script tags into your head tags in your ejs templates. Then add a javascript file in your public folder and link your ejs file to it using a script tag **
