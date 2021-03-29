@@ -1,3 +1,9 @@
+// font-family: 'Grandstander', cursive;
+// font-family: 'Permanent Marker', cursive;
+// font-family: 'Special Elite', cursive;
+// font-family: 'Tangerine', cursive;
+// font-family: 'Merriweather', serif;
+
 :root {
     --color-primary: rgb(105, 0, 128);
     --color-secondary: #0df2c9;
@@ -8,6 +14,29 @@
 
 body {
     background-color: var(--color-background);
+}
+
+.btn {
+    font-family: 'Special Elite', cursive;
+    // background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1.5;
+    font: 700 1.2rem 'Roboto Slab', sans-serif;
+    padding: 1em 2em;
+    letter-spacing: 0.05rem;
+
+    &:focus {
+        outline: 2px dotted #55d7dc;
+    }
+}
+
+label {
+    font-family: 'Grandstander', cursive;
+}
+
+input {
+    font-family: 'Grandstander', cursive;
 }
 
 ul {
@@ -29,11 +58,79 @@ h6 {
 h1 {
     color: var(--color-primary);
     text-align: center;
+    font-family: 'Permanent Marker', cursive;
 }
 
 h2 {
     color: var(--color-pageTitle);
     text-align: center;
+    font-family: 'Merriweather', serif;
+    padding-top: 15px;
+}
+
+nav li {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+
+    border: 1px solid black;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 40vh;
+
+    a {
+        padding: 3em;
+        font-size: 2em;
+        color: rgb(233, 198, 0);
+    }
+}
+
+.users-create,
+.users-login {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+
+    h2 {
+        margin-bottom: 10px;
+    }
+
+    &__flex-container {
+        display: flex;
+        justify-content: center;
+        align-items: normal;
+    }
+
+    li {
+        padding: 0.8em;
+    }
+
+    .user-create__admin-list {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        overflow: visible;
+        padding-bottom: 30px;
+    }
+
+    input {
+        border: none;
+    }
+}
+
+#admin-aside {
+    font-family: 'Tangerine', cursive;
+    font-size: 1.2em;
 }
 
 .product-index {

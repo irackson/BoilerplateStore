@@ -6,26 +6,30 @@
         <title>Create User</title>
     </head>
     <body>
-        <header class="users-new__header">
-            <%- include('../partials/header.ejs') %>
-        </header>
-        <main>
+        <header><%- include('../partials/header.ejs') %></header>
+        <main class="users-login">
             <h2>Login Below!</h2>
 
             <form action="/users/login" method="POST">
-                Username:
-                <input
-                    type="text"
-                    name="username"
-                    placeholder="username"
-                /><br />
-                Password:
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="password"
-                /><br />
-                <input type="submit" value="login" />
+                <ul>
+                    <li>
+                        <label for="username">Username:</label>
+                        <input
+                            type="text"
+                            name="username"
+                            placeholder="username"
+                        />
+                    </li>
+                    <li>
+                        <label for="username">Password:</label>
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="password"
+                        />
+                    </li>
+                    <input type="submit" value="login" />
+                </ul>
             </form>
         </main>
     </body>

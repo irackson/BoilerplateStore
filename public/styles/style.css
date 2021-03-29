@@ -10,6 +10,28 @@ body {
   background-color: var(--color-background);
 }
 
+.btn {
+  font-family: 'Special Elite', cursive;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font: 700 1.2rem 'Roboto Slab', sans-serif;
+  padding: 1em 2em;
+  letter-spacing: 0.05rem;
+}
+
+.btn:focus {
+  outline: 2px dotted #55d7dc;
+}
+
+label {
+  font-family: 'Grandstander', cursive;
+}
+
+input {
+  font-family: 'Grandstander', cursive;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -29,11 +51,119 @@ h6 {
 h1 {
   color: var(--color-primary);
   text-align: center;
+  font-family: 'Permanent Marker', cursive;
 }
 
 h2 {
   color: var(--color-pageTitle);
   text-align: center;
+  font-family: 'Merriweather', serif;
+  padding-top: 15px;
+}
+
+nav li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid black;
+}
+
+.home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  height: 40vh;
+}
+
+.home a {
+  padding: 3em;
+  font-size: 2em;
+  color: #e9c600;
+}
+
+.users-create,
+.users-login {
+  width: 100vw;
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+}
+
+.users-create h2,
+.users-login h2 {
+  margin-bottom: 10px;
+}
+
+.users-create__flex-container,
+.users-login__flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: normal;
+      -ms-flex-align: normal;
+          align-items: normal;
+}
+
+.users-create li,
+.users-login li {
+  padding: 0.8em;
+}
+
+.users-create .user-create__admin-list,
+.users-login .user-create__admin-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  overflow: visible;
+  padding-bottom: 30px;
+}
+
+.users-create input,
+.users-login input {
+  border: none;
+}
+
+#admin-aside {
+  font-family: 'Tangerine', cursive;
+  font-size: 1.2em;
 }
 
 .product-index {

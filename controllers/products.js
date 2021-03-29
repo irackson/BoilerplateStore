@@ -57,7 +57,6 @@ const edit = async (req, res) => {
 };
 
 const update = async (req, res) => {
-    console.log('THIS IS AN UPDATE');
     const product = await Product.findById(req.params.id);
     const edits = req.body;
     for (const property in edits) {
