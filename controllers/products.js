@@ -70,7 +70,13 @@ const update = async (req, res) => {
 
 const buy = async (req, res) => {
     const product = await Product.findById(req.params.id, 'qty');
+    const user = await User.findOne(
+        { username: req.session.user },
+        '-password'
+    );
+    user.cart.items.push(product);
     await Product.findByIdAndUpdate(req.params.id, { qty: product.qty - 1 });
+    user.save();
     res.redirect('/products');
 };
 

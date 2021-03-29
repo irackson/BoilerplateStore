@@ -7,7 +7,14 @@
     <body>
         <header><%- include('../partials/header.ejs') %></header>
         <main class="users-cart">
-            <h2>Review/Edit Your Cart!</h2>
+            <h2><%= username %>'s Cart</h2>
+            <div class="users-cart__list">
+                <ul>
+                    <% for (item of items ) { %>
+                    <li>Item Name: <%= item._doc.name %></li>
+                    <% } %>
+                </ul>
+            </div>
         </main>
     </body>
 </html>

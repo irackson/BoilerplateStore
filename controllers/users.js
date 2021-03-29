@@ -9,6 +9,7 @@ const adminCode = process.env.ADMIN_CODE || '';
 //! Import Models
 ////////////////////////
 const User = require('../models/User');
+const Product = require('../models/Product');
 
 ///////////////////////////
 //! Controller Functions
@@ -75,13 +76,26 @@ const logout = (req, res) => {
 };
 
 const getClientCart = async (req, res) => {
-    const user = await User.findOne({ username: req.session.user });
-
     if (req.session.admin) {
         res.redirect('/users/orders');
     } else {
+        /* const user = await User.findOne(
+            { username: req.session.user },
+            '-password'
+        ); */
+
+        const user = await User.findOne({
+            username: req.session.user,
+        }).populate('cart.items');
+
+        // console.log(user);
+        console.log(`username: ${user.username}`);
+        console.table(user.cart.items);
+
         res.render('users/cart', {
-            user,
+            username: user.username,
+            items: user.cart.items,
+            discount: user.cart.discount,
             loggedIn: req.session.user,
             admin: req.session.admin,
         });
