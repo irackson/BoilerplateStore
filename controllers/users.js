@@ -130,9 +130,24 @@ const getClientCart = async (req, res) => {
 };
 
 const getAllOrders = async (req, res) => {
-    const users = await User.find({ admin: false }, '-password');
+    const users = await User.find(
+        { admin: false, 'cart.items.1': { $exists: true } },
+        '-password'
+    );
+
+    const displayCarts = [];
+    for (let i = 0; i < users.length; i++) {
+        const updatedCart = await removeDeleted(users[i].cart.items);
+        const displayCart = await removeDuplicatesAndCount(updatedCart);
+        displayCarts.push({
+            username: users[i].username,
+            cart: displayCart,
+        });
+    }
+    console.log(displayCarts);
+
     res.render('users/orders', {
-        users,
+        displayCarts,
     });
 };
 

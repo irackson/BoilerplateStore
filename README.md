@@ -1,8 +1,6 @@
 # <span style="color:orange">TODO</span>
 
--   Shopping Cart with /users/cart for non-admin (ejs)
 -   View all carts with /users/carts for admin (ejs)
--   deal with case where item is in cart but then deleted from store by admin (if null, write that the item by that ID is no longer available)
 -   create new account validation (no empty username (client-side), no empty password (client-side), if admin pw wrong (server-side) --> ejs/style contact your web developer or call your employer, link to home, redirect to home after setTimeout)
 -   Use either jQuery or MongoDB to sort your items and display them alphabetically/by price.
 -   ejs/style no permission, link to home, redirect to home after setTimeout
