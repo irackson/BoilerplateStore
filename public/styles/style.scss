@@ -287,3 +287,41 @@ nav li {
         border: none;
     }
 }
+
+.users-cart {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+
+    h2 {
+        margin-bottom: 10px;
+    }
+
+    h4 {
+        font-family: 'Special Elite', cursive;
+    }
+
+    &__flex-container {
+        display: flex;
+        justify-content: center;
+        align-items: normal;
+    }
+
+    li {
+        padding: 0.8em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    img {
+        width: 100px;
+        height: 100px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

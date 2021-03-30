@@ -8,12 +8,17 @@
         <header><%- include('../partials/header.ejs') %></header>
         <main class="users-cart">
             <h2><%= username %>'s Cart</h2>
-            <div class="users-cart__list">
+            <div class="users-cart__flex-container">
                 <ul>
                     <% for (sameItems of cart ) { %>
                     <li>
-                        Item Name: <%= sameItems.item.name %>, Item ID: <%=
-                        sameItems.item._id %>, Num: <%= sameItems.count %>
+                        <img
+                            src="<%= sameItems.item.img  %>"
+                            alt="<%= sameItems.item.name  %>"
+                        />
+                        <h4><%= sameItems.item.name %></h4>
+                        &nbsp;-&nbsp; <%#= sameItems.item._id %>
+                        <h4><%= sameItems.count %></h4>
                     </li>
                     <% } %>
                 </ul>
