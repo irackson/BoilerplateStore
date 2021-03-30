@@ -291,7 +291,8 @@ nav li {
     }
 }
 
-.users-cart {
+.users-cart,
+.users-orders {
     width: 100vw;
     height: 80vh;
     display: flex;
@@ -312,6 +313,7 @@ nav li {
         display: flex;
         justify-content: center;
         align-items: normal;
+        flex-wrap: wrap;
     }
 
     li {

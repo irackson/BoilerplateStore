@@ -74,10 +74,14 @@ const buy = async (req, res) => {
         { username: req.session.user },
         '-password'
     );
-    user.cart.items.push(product);
-    await Product.findByIdAndUpdate(req.params.id, { qty: product.qty - 1 });
-    user.save();
-    res.redirect('/products');
+    if (product.qty > 0) {
+        user.cart.items.push(product);
+        await Product.findByIdAndUpdate(req.params.id, {
+            qty: product.qty - 1,
+        });
+        user.save();
+    }
+    res.redirect(`${req.params.id}`);
 };
 
 const destroy = async (req, res) => {

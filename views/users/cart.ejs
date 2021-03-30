@@ -12,13 +12,14 @@
                 <ul>
                     <% for (sameItems of cart ) { %>
                     <li>
-                        <img
-                            src="<%= sameItems.item.img  %>"
-                            alt="<%= sameItems.item.name  %>"
-                        />
-                        <h4><%= sameItems.item.name %></h4>
-                        &nbsp;-&nbsp; <%#= sameItems.item._id %>
-                        <h4><%= sameItems.count %></h4>
+                        <a href="/products/<%= sameItems.item._id %>">
+                            <img
+                                src="<%= sameItems.item.img  %>"
+                                alt="<%= sameItems.item.name  %>"
+                        /></a>
+                        <h4>
+                            <%= sameItems.item.name %> (<%= sameItems.count %>)
+                        </h4>
                     </li>
                     <% } %>
                 </ul>

@@ -144,8 +144,6 @@ const getAllOrders = async (req, res) => {
             cart: displayCart,
         });
     }
-    console.log(displayCarts);
-
     res.render('users/orders', {
         displayCarts,
     });

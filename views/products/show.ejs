@@ -39,7 +39,7 @@
                                 EDIT
                             </button>
                         </form>
-                        <% } else { %>
+                        <% } else if (product.qty > 0) { %>
                         <form
                             action="/products/<%= product._id %>?_method=PATCH"
                             method="POST"

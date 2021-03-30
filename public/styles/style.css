@@ -385,7 +385,8 @@ nav li {
   border: none;
 }
 
-.users-cart {
+.users-cart,
+.users-orders {
   width: 100vw;
   height: 80vh;
   display: -webkit-box;
@@ -402,15 +403,18 @@ nav li {
   gap: 1em;
 }
 
-.users-cart h2 {
+.users-cart h2,
+.users-orders h2 {
   margin-bottom: 10px;
 }
 
-.users-cart h4 {
+.users-cart h4,
+.users-orders h4 {
   font-family: 'Special Elite', cursive;
 }
 
-.users-cart__flex-container {
+.users-cart__flex-container,
+.users-orders__flex-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -420,9 +424,12 @@ nav li {
   -webkit-box-align: normal;
       -ms-flex-align: normal;
           align-items: normal;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-.users-cart li {
+.users-cart li,
+.users-orders li {
   padding: 0.8em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -436,7 +443,8 @@ nav li {
           align-items: center;
 }
 
-.users-cart img {
+.users-cart img,
+.users-orders img {
   width: 100px;
   height: 100px;
   padding-left: 10px;
