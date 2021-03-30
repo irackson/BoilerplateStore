@@ -1,5 +1,6 @@
 # <span style="color:orange">TODO</span>
 
+-   moved to personal github
 -   ajax api call in seed for longer starting inventory
 -   handle bad image url
 -   Use either jQuery or MongoDB to sort your items and display them alphabetically/by price.
