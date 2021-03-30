@@ -10,6 +10,12 @@ body {
   background-color: var(--color-background);
 }
 
+main {
+  width: 100vw;
+  margin-bottom: 10px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .btn {
   font-family: 'Special Elite', cursive;
   border-radius: 10px;
@@ -62,7 +68,7 @@ h1 {
 h2 {
   color: var(--color-pageTitle);
   text-align: center;
-  font-family: 'Merriweather', serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   padding-top: 15px;
 }
 
@@ -108,8 +114,6 @@ nav li {
 
 .users-create,
 .users-login {
-  width: 100vw;
-  height: 80vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -216,8 +220,6 @@ nav li {
 }
 
 .product-index {
-  width: 100vw;
-  height: 80vh;
   position: relative;
 }
 
@@ -278,13 +280,9 @@ nav li {
 .product-index img {
   width: 200px;
   height: 200px;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .product-show {
-  width: 100vw;
-  height: 80vh;
   text-align: center;
 }
 
@@ -335,14 +333,10 @@ nav li {
 .product-show img {
   width: 300px;
   height: 300px;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .product-edit,
 .product-new {
-  width: 100vw;
-  height: 80vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -383,12 +377,11 @@ nav li {
 .product-edit input,
 .product-new input {
   border: none;
+  border-radius: 3px;
 }
 
 .users-cart,
 .users-orders {
-  width: 100vw;
-  height: 80vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -413,6 +406,13 @@ nav li {
   font-family: 'Special Elite', cursive;
 }
 
+.users-cart em,
+.users-orders em {
+  font-family: 'Tangerine', cursive;
+  padding-right: 0.4em;
+  margin-left: -0.4em;
+}
+
 .users-cart__flex-container,
 .users-orders__flex-container {
   display: -webkit-box;
@@ -426,6 +426,11 @@ nav li {
           align-items: normal;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+
+.users-cart ul,
+.users-orders ul {
+  border-top: 1px dotted black;
 }
 
 .users-cart li,
@@ -447,7 +452,6 @@ nav li {
 .users-orders img {
   width: 100px;
   height: 100px;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-right: 10px;
 }
 /*# sourceMappingURL=style.css.map */

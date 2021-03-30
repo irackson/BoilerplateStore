@@ -11,8 +11,11 @@
             <div class="users-orders__flex-container">
                 <% for( let c = 0; c < displayCarts.length; c++ ) { %>
                 <div class="users-orders__customer-container">
+                    <% if (displayCarts[c].cart.length > 0) { %>
                     <div class="users-orders__username">
-                        <h3>Username: <%= displayCarts[c].username %></h3>
+                        <h3>
+                            <em>chariot de</em> <%= displayCarts[c].username %>
+                        </h3>
                     </div>
                     <div class="users-orders__cart-container">
                         <ul>
@@ -31,6 +34,7 @@
                             <% } %>
                         </ul>
                     </div>
+                    <% } %>
                 </div>
                 <% } %>
             </div>

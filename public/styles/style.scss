@@ -16,6 +16,12 @@ body {
     background-color: var(--color-background);
 }
 
+main {
+    width: 100vw;
+    margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
 .btn {
     font-family: 'Special Elite', cursive;
     border-radius: 10px;
@@ -68,7 +74,8 @@ h1 {
 h2 {
     color: var(--color-pageTitle);
     text-align: center;
-    font-family: 'Merriweather', serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+        'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding-top: 15px;
 }
 
@@ -99,8 +106,6 @@ nav li {
 
 .users-create,
 .users-login {
-    width: 100vw;
-    height: 80vh;
     display: flex;
     text-align: center;
     align-items: center;
@@ -176,8 +181,6 @@ nav li {
 }
 
 .product-index {
-    width: 100vw;
-    height: 80vh;
     position: relative;
 
     h2 {
@@ -218,14 +221,10 @@ nav li {
     img {
         width: 200px;
         height: 200px;
-        padding-left: 10px;
-        padding-right: 10px;
     }
 }
 
 .product-show {
-    width: 100vw;
-    height: 80vh;
     text-align: center;
 
     h2 {
@@ -257,15 +256,11 @@ nav li {
     img {
         width: 300px;
         height: 300px;
-        padding-left: 10px;
-        padding-right: 10px;
     }
 }
 
 .product-edit,
 .product-new {
-    width: 100vw;
-    height: 80vh;
     display: flex;
     text-align: center;
     align-items: center;
@@ -288,13 +283,12 @@ nav li {
 
     input {
         border: none;
+        border-radius: 3px;
     }
 }
 
 .users-cart,
 .users-orders {
-    width: 100vw;
-    height: 80vh;
     display: flex;
     text-align: center;
     align-items: center;
@@ -309,11 +303,21 @@ nav li {
         font-family: 'Special Elite', cursive;
     }
 
+    em {
+        font-family: 'Tangerine', cursive;
+        padding-right: 0.4em;
+        margin-left: -0.4em;
+    }
+
     &__flex-container {
         display: flex;
         justify-content: center;
         align-items: normal;
         flex-wrap: wrap;
+    }
+
+    ul {
+        border-top: 1px dotted black;
     }
 
     li {
@@ -326,7 +330,6 @@ nav li {
     img {
         width: 100px;
         height: 100px;
-        padding-left: 10px;
-        padding-right: 10px;
+        margin-right: 10px;
     }
 }
