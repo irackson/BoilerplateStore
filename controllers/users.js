@@ -20,23 +20,47 @@ const getCreate = async (req, res) => {
     res.render('users/create');
 };
 
+async function usernameFree(attempt) {
+    const users = await User.find({ username: attempt });
+    if (users.length === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 const createSubmit = async (req, res) => {
     //TODO: DEAL WITH TAKEN USERNAME (MUST BE  UNIQUE)
 
-    if (
-        req.body.admin === 'on' &&
-        (req.body.admin_code === adminCode ||
-            req.body.admin_code === adminCode.toLowerCase())
-    ) {
-        req.body.admin = true;
-    } else {
-        req.body.admin = false;
-    }
+    if (await usernameFree(req.body.username)) {
+        if (req.body.admin === 'on') {
+            if (
+                req.body.admin_code === adminCode ||
+                req.body.admin_code === adminCode.toLowerCase()
+            ) {
+                req.body.admin = true;
+            } else {
+                res.json({
+                    message:
+                        'You have entered the wrong Admin Code. Account creation failed. Contact your web developer or call your employer for the right code, and then hit the back button and try again.',
+                });
+                return;
+            }
+        } else {
+            req.body.admin = false;
+        }
 
-    const salt = await bcrypt.genSalt(saltRounds);
-    req.body.password = await bcrypt.hash(req.body.password, salt);
-    const user = await User.create(req.body);
-    res.redirect('/users/login');
+        const salt = await bcrypt.genSalt(saltRounds);
+        req.body.password = await bcrypt.hash(req.body.password, salt);
+        const user = await User.create(req.body);
+        res.redirect('/users/login');
+    } else {
+        console.log('not making account');
+        res.json({
+            message:
+                'An account already exists with this username. Account creation failed. Use the back button to create an account with a different username.',
+        });
+    }
 };
 
 const getLogin = async (req, res) => {

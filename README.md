@@ -1,6 +1,5 @@
 # <span style="color:orange">TODO</span>
 
--   create new account validation (no empty username (client-side), no empty password (client-side), if admin pw wrong (server-side) --> ejs/style contact your web developer or call your employer, link to home, redirect to home after setTimeout)
 -   ajax api call in seed for longer starting inventory
 -   handle bad image url
 -   Use either jQuery or MongoDB to sort your items and display them alphabetically/by price.
