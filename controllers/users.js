@@ -75,38 +75,41 @@ const logout = (req, res) => {
     });
 };
 
-function cleanCart(inputList) {
+async function removeDuplicatesAndCount(inputList) {
     /* based on https://stackoverflow.com/a/19395302 */
+
     let counts = {};
     inputList.forEach(function (x) {
         counts[x] = (counts[x] || 0) + 1;
     });
-    console.log(Object.keys(counts)[0]);
-    console.log(Object.values(counts)[0]);
+    let outputList = [];
+    for (let i = 0; i < Object.values(counts).length; i++) {
+        outputList.push({
+            item: await Product.findById(Object.keys(counts)[i]),
+            count: Object.values(counts)[i],
+        });
+    }
+    return outputList;
 }
 
 const getClientCart = async (req, res) => {
     if (req.session.admin) {
         res.redirect('/users/orders');
     } else {
-        const user = await User.findOne({
-            username: req.session.user,
-        }).populate(
-            'cart.items',
-            '-qty -description -createdAt -updatedAt -__v'
+        const user = await User.findOne(
+            {
+                username: req.session.user,
+            },
+            '-password'
         );
 
-        // console.log(`username: ${user.username}`);
-
-        const items = cleanCart(user.cart.items);
-
-        // res.render('users/cart', {
-        //     username: user.username,
-        //     items: user.cart.items,
-        //     discount: user.cart.discount,
-        //     loggedIn: req.session.user,
-        //     admin: req.session.admin,
-        // });
+        res.render('users/cart', {
+            username: user.username,
+            cart: await removeDuplicatesAndCount(user.cart.items),
+            discount: user.cart.discount,
+            loggedIn: req.session.user,
+            admin: req.session.admin,
+        });
     }
 };
 

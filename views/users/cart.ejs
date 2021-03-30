@@ -10,10 +10,10 @@
             <h2><%= username %>'s Cart</h2>
             <div class="users-cart__list">
                 <ul>
-                    <% for (item of items ) { %>
+                    <% for (sameItems of cart ) { %>
                     <li>
-                        Item Name: <%= item._doc.name %>, Item ID: <%=
-                        item._doc._id %>
+                        Item Name: <%= sameItems.item.name %>, Item ID: <%=
+                        sameItems.item._id %>, Num: <%= sameItems.count %>
                     </li>
                     <% } %>
                 </ul>
