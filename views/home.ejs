@@ -8,7 +8,14 @@
         <%- include('./partials/nav.ejs') %>
         <header><%- include('./partials/header.ejs') %></header>
         <main class="home">
+            <% if (loggedIn && admin) { %>
+            <h2>Welcome Admin!</h2>
+
+            <% } else if (loggedIn) { %>
+            <h2>Welcome <%= loggedIn %>!</h2>
+            <% } else { %>
             <h2>Welcome!</h2>
+            <% } %>
             <a class="home__enter" href="/products">ENTER</a>
         </main>
     </body>
