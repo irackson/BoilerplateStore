@@ -16,7 +16,7 @@ const seed = async () => {
 
     //clear collections before seeding
     await Product.deleteMany({});
-    await User.deleteMany({}); // to clear accounts
+    // await User.deleteMany({}); // to clear accounts
     await Product.create([
         {
             name: 'Beans',

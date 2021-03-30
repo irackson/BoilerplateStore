@@ -92,6 +92,20 @@ async function removeDuplicatesAndCount(inputList) {
     return outputList;
 }
 
+async function removeDeleted(inputList) {
+    let outputList = [];
+
+    for (let i = 0; i < inputList.length; i++) {
+        const item = await Product.findById(inputList[i]);
+        if (item !== null) {
+            outputList.push(inputList[i]);
+        } else {
+            inputList = inputList.filter((e) => e !== inputList[i]);
+        }
+    }
+    return outputList;
+}
+
 const getClientCart = async (req, res) => {
     if (req.session.admin) {
         res.redirect('/users/orders');
@@ -102,10 +116,12 @@ const getClientCart = async (req, res) => {
             },
             '-password'
         );
+        const updatedCart = await removeDeleted(user.cart.items);
+        const displayCart = await removeDuplicatesAndCount(updatedCart);
 
         res.render('users/cart', {
             username: user.username,
-            cart: await removeDuplicatesAndCount(user.cart.items),
+            cart: displayCart,
             discount: user.cart.discount,
             loggedIn: req.session.user,
             admin: req.session.admin,

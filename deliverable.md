@@ -269,7 +269,7 @@ See some previous student's examples for some inspiration for your store. Great 
 
 Use either jQuery or MongoDB to sort your items and display them alphabetically/by price.
 
-** To use jQuery load the jQquery script tags into your head tags in your ejs templates. Then add a javascript file in your public folder and link your ejs file to it using a script tag **
+** To use jQuery load the jQuery script tags into your head tags in your ejs templates. Then add a javascript file in your public folder and link your ejs file to it using a script tag **
 
 ## Deliverables
 
