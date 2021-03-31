@@ -104,12 +104,12 @@ nav li {
   width: 100vw;
 }
 
-.home a {
-  padding: 0em 3em 0em 3em;
+.home .home__enter {
   font-size: 4em;
   color: #e9c600;
   font-family: 'Permanent Marker', cursive;
   text-decoration: none;
+  text-align: center;
 }
 
 .users-create,

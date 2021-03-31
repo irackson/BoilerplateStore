@@ -95,12 +95,12 @@ nav li {
     width: 100vw;
     // background: url('https://i.imgur.com/F2qaV0d.png') center no-repeat;
 
-    a {
-        padding: 0em 3em 0em 3em;
+    .home__enter {
         font-size: 4em;
         color: rgb(233, 198, 0);
         font-family: 'Permanent Marker', cursive;
         text-decoration: none;
+        text-align: center;
     }
 }
 
