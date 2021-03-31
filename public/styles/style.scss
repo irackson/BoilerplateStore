@@ -207,6 +207,12 @@ nav li {
         justify-content: space-around;
         align-items: center;
         gap: 1em;
+
+        @media only screen and (min-width: 320px) {
+            div {
+                margin-bottom: 10px;
+            }
+        }
     }
 
     &__item-container {

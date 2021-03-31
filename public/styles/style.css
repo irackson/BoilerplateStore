@@ -259,6 +259,12 @@ nav li {
   gap: 1em;
 }
 
+@media only screen and (min-width: 320px) {
+  .product-index__flex-container div {
+    margin-bottom: 10px;
+  }
+}
+
 .product-index__item-container {
   display: -webkit-box;
   display: -ms-flexbox;
