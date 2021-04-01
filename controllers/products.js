@@ -87,6 +87,13 @@ const buy = async (req, res) => {
 const destroy = async (req, res) => {
     await Product.findByIdAndDelete(req.params.id);
     res.redirect('/products');
+
+    //? alternative that allows schema pre delete hook
+    /* Product.findById(req.params.id, function (err, product) {
+        if (err) return next(err);
+        product.remove();
+        res.redirect('/products');
+    }); */
 };
 
 //////////////////////////////

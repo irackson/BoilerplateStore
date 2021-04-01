@@ -20,6 +20,20 @@ const ProductSchema = new Schema(
     { timestamps: true }
 );
 
+//? https://www.youtube.com/watch?v=5iz69Wq_77k
+/* ProductSchema.pre('remove', async function (next) {
+    try {
+        await User.remove({
+            _id: {
+                $in: this.cart?.items,
+            },
+        });
+        next();
+    } catch (error) {
+        next(error);
+    }
+}); */
+
 ///////////////////////////////////
 //! DEFINE OUR MODEL
 ///////////////////////////////////

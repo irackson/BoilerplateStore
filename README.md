@@ -1,5 +1,6 @@
 # <span style="color:orange">TODO</span>
 
+-   check out count and unique
 -   moved to personal github
 -   ajax api call in seed for longer starting inventory
 -   handle bad image url

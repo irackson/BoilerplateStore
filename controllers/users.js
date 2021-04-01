@@ -155,6 +155,7 @@ const getAllOrders = async (req, res) => {
         { admin: false, 'cart.items.1': { $exists: true } },
         '-password'
     );
+    //? .populate('cart.items');
 
     const displayCarts = [];
     for (let i = 0; i < users.length; i++) {
