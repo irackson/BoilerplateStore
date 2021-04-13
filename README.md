@@ -10,4 +10,4 @@
 
 ** To use jQuery load the jQuery script tags into your head tags in your ejs templates. Then add a javascript file in your public folder and link your ejs file to it using a script tag **
 
-this project used be on my GA github, is now on personal after heroku deploy
+[![wakatime](https://wakatime.com/badge/github/irackson/BoilerplateStore.svg)](https://wakatime.com/badge/github/irackson/BoilerplateStore)

@@ -43,6 +43,6 @@
         "terminal.ansiWhite": "#A7A7A7",
         "terminal.ansiYellow": "#F9EE98",
         "editorCursor.foreground": "#dddd0fb6",
-        "tab.activeBorder": "#0d4706"
+        "tab.activeBorder": "#e189dc"
     }
 }
