@@ -1,3 +1,5 @@
+[![wakatime](https://wakatime.com/badge/github/irackson/BoilerplateStore.svg)](https://wakatime.com/badge/github/irackson/BoilerplateStore)
+
 # <span style="color:orange">TODO</span>
 
 -   check out count and unique
@@ -9,5 +11,3 @@
 -   ejs/style failed login with link to sign-in or forgot password?
 
 ** To use jQuery load the jQuery script tags into your head tags in your ejs templates. Then add a javascript file in your public folder and link your ejs file to it using a script tag **
-
-[![wakatime](https://wakatime.com/badge/github/irackson/BoilerplateStore.svg)](https://wakatime.com/badge/github/irackson/BoilerplateStore)
